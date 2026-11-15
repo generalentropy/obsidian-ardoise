@@ -1,0 +1,12 @@
+{
+  "name": "ardoise-tools",
+  "private": true,
+  "type": "module",
+  "description": "Rebuilds the embedded fonts in theme.css",
+  "scripts": {
+    "build-fonts": "node build-fonts.mjs"
+  },
+  "dependencies": {
+    "subset-font": "2.9.0"
+  }
+}
