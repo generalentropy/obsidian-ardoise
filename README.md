@@ -1,6 +1,6 @@
 # Ardoise
 
-A soft, minimal theme for Obsidian, in dark and light.
+A clean, calm theme in dark and light.
 
 ![Ardoise in dark and light mode](screenshot.png)
 
@@ -11,7 +11,7 @@ A soft, minimal theme for Obsidian, in dark and light.
 - Dark and light modes: easy on the eyes, with high contrast for body text (about 9:1 or more)
 - One colour per heading level: ochre, blue, sage
 - Pill-shaped tags, quiet tabs and status bar, thin scrollbars
-- Fonts bundled in the theme, so it makes no network requests:
+- Fonts included:
   - Hanken Grotesk for text and interface
   - Fraunces, in its soft style, for headings
   - Geist Mono for code
