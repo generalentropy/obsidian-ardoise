@@ -6,6 +6,8 @@ A clean, calm theme in dark and light.
 
 *Ardoise* is French for slate. In dark mode, chalk-coloured text sits on a blue-grey slate. In light mode, slate-coloured text sits on a pale blue-grey sheet. Ochre is the accent, with touches of blue, sage and rose.
 
+<a href="https://www.buymeacoffee.com/eddynicolle"><img src="assets/buy-me-a-coffee.svg" alt="Buy me a coffee" width="184" height="44"></a>
+
 ## Features
 
 - Dark and light modes: easy on the eyes, with high contrast for body text (about 9:1 or more)
