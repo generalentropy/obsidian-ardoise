@@ -18,6 +18,8 @@ A clean, calm theme in dark and light.
   - Fraunces for headings
   - Geist Mono for code
 
+Ardoise aims for WCAG AA contrast. See [CONTRAST.md](CONTRAST.md) for the details.
+
 ## Customisation
 
 Colours are CSS variables at the top of `theme.css`, with one block for each mode: `--bg-page` (note background), `--text` (body text), `--ochre` (accent), `--blue`, `--sage` and `--rose`. You can override them with a CSS snippet:
