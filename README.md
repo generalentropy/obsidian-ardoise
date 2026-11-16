@@ -36,8 +36,6 @@ body {
 }
 ```
 
-The French names used before version 1.2 (`--fond-page`, `--texte`, `--ocre`, `--bleu`, `--sauge`, `--ardoise-titre`) still work.
-
 Fonts set in **Settings → Appearance → Font** take precedence over the theme's fonts.
 
 ## Credits

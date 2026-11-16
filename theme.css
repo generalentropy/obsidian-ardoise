@@ -1,14 +1,12 @@
 /* =========================================================================
  * Dark palette
- * Values written var(--old-name, …) also accept the French names used up to 1.1
- * (--fond-page, --texte, --ocre, --bleu, --sauge, --ardoise-titre), so older snippets keep working.
  * ========================================================================= */
 .theme-dark {
   /* Backgrounds, darkest to lightest */
   --bg-deep:     #22282f; /* code backgrounds */
   --bg-panel:    #262c33; /* side panels, tab bar */
   --bg-alt:      #293038;
-  --bg-page:     var(--fond-page, #2d343d); /* note background */
+  --bg-page:     #2d343d; /* note background */
   --bg-raised:   #353e48; /* hovers, buttons */
   --bg-raised-2: #3c4651;
   --line:        #3a434d; /* borders */
@@ -16,7 +14,7 @@
   --line-3:      #515b66;
 
   /* Text (chalk) */
-  --text:        var(--texte, #e2ded6); /* body text */
+  --text:        #e2ded6; /* body text */
   --text-bright: #f2efe9; /* bold */
   --text-soft:   #abb2b9; /* secondary text */
   --text-grey:   #8a939c;
@@ -25,11 +23,11 @@
   --on-accent:   #22282f; /* text on ochre */
 
   /* Colours */
-  --ochre:         var(--ocre, #dbb57c); /* accent: links, checkboxes, caret */
+  --ochre:         #dbb57c; /* accent: links, checkboxes, caret */
   --ochre-bright:  #e7c796; /* hover */
   --ochre-heading: #dcbd8f; /* # headings */
-  --blue:          var(--bleu, #a7c1de); /* ## headings */
-  --sage:          var(--sauge, #a9c7a1); /* ### headings, tags, code strings */
+  --blue:          #a7c1de; /* ## headings */
+  --sage:          #a9c7a1; /* ### headings, tags, code strings */
   --rose:          #e0aba6; /* inline code */
 
   /* Same hues as R, G, B (for transparency) */
@@ -59,7 +57,7 @@
   --bg-deep:     #dfe4e8; /* code backgrounds */
   --bg-panel:    #e5e9ec; /* side panels, tab bar */
   --bg-alt:      #e9ecef;
-  --bg-page:     var(--fond-page, #eef0f2); /* note background */
+  --bg-page:     #eef0f2; /* note background */
   --bg-raised:   #dce2e7; /* hovers, buttons */
   --bg-raised-2: #d3dae0;
   --line:        #d3d9de; /* borders */
@@ -67,7 +65,7 @@
   --line-3:      #aeb7bf;
 
   /* Text (slate ink) */
-  --text:        var(--texte, #2f3740); /* body text */
+  --text:        #2f3740; /* body text */
   --text-bright: #1d242b; /* bold */
   --text-soft:   #5b6672; /* secondary text */
   --text-grey:   #6f7a85;
@@ -76,11 +74,11 @@
   --on-accent:   #eef0f2; /* text on ochre */
 
   /* Colours, darkened to stay readable on a light background */
-  --ochre:         var(--ocre, #8c5f1f); /* accent: links, checkboxes, caret */
+  --ochre:         #8c5f1f; /* accent: links, checkboxes, caret */
   --ochre-bright:  #a3712a; /* hover */
   --ochre-heading: #946a2e; /* # headings */
-  --blue:          var(--bleu, #3f6690); /* ## headings */
-  --sage:          var(--sauge, #4c7246); /* ### headings, tags, code strings */
+  --blue:          #3f6690; /* ## headings */
+  --sage:          #4c7246; /* ### headings, tags, code strings */
   --rose:          #974842; /* inline code */
 
   /* Same hues as R, G, B (for transparency) */
@@ -285,7 +283,7 @@ body {
   --font-text-theme: "Ardoise Sans", "Hanken Grotesk", "Atkinson Hyperlegible Next", "Segoe UI", sans-serif;
   --font-interface-theme: "Ardoise Sans", "Hanken Grotesk", "Atkinson Hyperlegible Next", "Segoe UI", sans-serif;
   --font-monospace-theme: "Ardoise Mono", "Geist Mono", "JetBrainsMono Nerd Font", "JetBrainsMono NF", Consolas, monospace;
-  --heading-font: var(--ardoise-titre, "Ardoise Heading", "Fraunces", Georgia, serif);
+  --heading-font: "Ardoise Heading", "Fraunces", Georgia, serif;
 
   --line-height-normal: 1.65;
   --file-line-width: 680px;
