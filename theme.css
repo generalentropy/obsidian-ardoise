@@ -375,6 +375,17 @@ body {
   border-radius: 8px;
 }
 
+/* Mode sombre : Obsidian attend de --text-on-accent-inverted un texte sombre, pour les fonds
+ * clairs (étiquettes des groupes de Canvas sur une couleur claire). */
+.theme-dark {
+  --text-on-accent-inverted: var(--sur-accent);
+}
+/* Mode sombre : sur un groupe de Canvas de couleur sombre, Obsidian met --text-on-accent,
+ * qu'il suppose clair. Ici il est sombre, puisque l'ocre est clair : on force un texte clair. */
+.theme-dark .canvas-node-group.is-themed .canvas-group-label:not([contenteditable=true]).mod-foreground-light {
+  color: var(--texte-vif);
+}
+
 
 /* =========================================================================
  * Polices intégrées (SIL Open Font License 1.1), allégées : caractères latins, format WOFF2.
