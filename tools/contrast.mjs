@@ -162,5 +162,71 @@ for (const mode of ["dark", "light"]) {
   }
   summary.push(`${mode}: ${pass}/${total} pass`);
 }
+
+// --- Style Settings options ------------------------------------------------------------------------
+// Each option is a block such as `.theme-dark.ardoise-accent-blue { ... }` laid over the palette.
+const options = (prefix) => [...css.matchAll(new RegExp(`\\.theme-dark\\.ardoise-${prefix}-([a-z]+) \\{`, "g"))].map((m) => m[1]);
+function withOptions(mode, classes, fn) {
+  const base = palette[mode];
+  palette[mode] = Object.assign({}, base, ...classes.map((c) => block(`.theme-${mode}.${c} {`)));
+  try { return fn(); } finally { palette[mode] = base; }
+}
+function measure(mode, [, fgSpec, bgSpec, kind]) {
+  const bg = resolve(mode, bgSpec);
+  const r = ratio(over(resolve(mode, fgSpec), bg), bg);
+  return { r, ok: r >= need[kind] - 0.005 };
+}
+const cap = (s) => s[0].toUpperCase() + s.slice(1);
+const modeName = (mode) => (mode === "dark" ? "Dark" : "Light");
+const accents = ["ochre", ...options("accent")];
+const accentClasses = (name) => (name === "ochre" ? [] : [`ardoise-accent-${name}`]);
+const accentRows = [
+  ["Link", "--link-color", page, "text"],
+  ["Text on accent", "--text-on-accent", "--interactive-accent", "text"],
+  ["Highlighted text", "--text-normal", { tint: "--text-highlight-bg", on: page }, "text"],
+];
+
+md += `\n## Style Settings options\n\nThe options offered in the [Style Settings](https://github.com/mgmeyers/obsidian-style-settings) plugin. The tables above use the defaults: slate background, ochre accent.\n`;
+
+// Accent colours
+md += `\n### Accent colours\n\nRatios below 4.5:1 are in bold.\n
+| Accent | Mode | ${accentRows.map((r) => r[0]).join(" | ")} |\n| --- | --- |${" ---: |".repeat(accentRows.length)}\n`;
+let accentPass = 0, accentTotal = 0;
+for (const name of accents) {
+  for (const mode of ["dark", "light"]) {
+    const cells = withOptions(mode, accentClasses(name), () => accentRows.map((row) => {
+      const { r, ok } = measure(mode, row);
+      accentTotal++; if (ok) accentPass++;
+      return ok ? `${r.toFixed(2)}:1` : `**${r.toFixed(2)}:1**`;
+    }));
+    md += `| ${cap(name)} | ${modeName(mode)} | ${cells.join(" | ")} |\n`;
+  }
+}
+summary.push(`accents: ${accentPass}/${accentTotal} pass`);
+
+// Other backgrounds: every row above, measured again, with only the rows that move listed
+for (const bgName of options("bg")) {
+  const bgClass = `ardoise-bg-${bgName}`;
+  const rows = [
+    ...groups.flatMap(([, list]) => list).map((row) => ({ label: row[0], row, accent: "ochre" })),
+    ...accents.flatMap((name) => accentRows.map((row) => ({ label: `${row[0]}, ${name} accent`, row, accent: name }))),
+  ];
+  let pass = 0, total = 0, moved = "";
+  for (const mode of ["dark", "light"]) {
+    for (const { label, row, accent } of rows) {
+      const before = withOptions(mode, accentClasses(accent), () => measure(mode, row));
+      const after = withOptions(mode, [bgClass, ...accentClasses(accent)], () => measure(mode, row));
+      total++; if (after.ok) pass++;
+      if (Math.abs(after.r - before.r) >= 0.05 || after.ok !== before.ok) {
+        moved += `| ${label} | ${modeName(mode)} | ${before.r.toFixed(2)}:1 | ${after.r.toFixed(2)}:1 | ${after.ok ? "Pass" : `**Below** (${need[row[3]]}:1)`} |\n`;
+      }
+    }
+  }
+  md += `\n### ${cap(bgName)} background\n\nEvery row above, measured again on the ${bgName} background: ${pass} of ${total} pass. `;
+  md += moved
+    ? `Rows whose ratio moves by 0.05 or more:\n\n| Element | Mode | Slate | ${cap(bgName)} | AA |\n| --- | --- | ---: | ---: | --- |\n${moved}`
+    : `No ratio moves by 0.05 or more.\n`;
+  summary.push(`${bgName}: ${pass}/${total} pass`);
+}
 writeFileSync(join(root, "CONTRAST.md"), md, "utf8");
 console.log(`CONTRAST.md written (${summary.join(", ")})`);

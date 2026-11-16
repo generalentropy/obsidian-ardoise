@@ -1,3 +1,105 @@
+/* @settings
+
+name: Ardoise
+id: ardoise
+settings:
+  -
+    id: colours
+    title: Colours
+    title.fr: Couleurs
+    type: heading
+    level: 1
+    collapsed: false
+  -
+    id: ardoise-background
+    title: Background
+    title.fr: Fond
+    description: Blue-grey slate, or a warmer grey. Backgrounds, borders and secondary text change; contrast stays the same.
+    description.fr: Ardoise gris-bleu, ou un gris plus chaud. Les fonds, les bordures et le texte secondaire changent ; le contraste reste le même.
+    type: class-select
+    allowEmpty: false
+    default: ardoise-bg-slate
+    options:
+      -
+        label: Slate
+        value: ardoise-bg-slate
+      -
+        label: Warm
+        value: ardoise-bg-warm
+  -
+    id: ardoise-accent
+    title: Accent colour
+    title.fr: "Couleur d'accent"
+    description: Links, checkboxes, buttons, cursor, selection and highlights. Every choice meets WCAG AA contrast in both modes.
+    description.fr: Liens, cases à cocher, boutons, curseur, sélection et surlignage. Chaque choix respecte le contraste WCAG AA dans les deux modes.
+    type: class-select
+    allowEmpty: false
+    default: ardoise-accent-ochre
+    options:
+      -
+        label: Ochre
+        value: ardoise-accent-ochre
+      -
+        label: Blue
+        value: ardoise-accent-blue
+      -
+        label: Sage
+        value: ardoise-accent-sage
+      -
+        label: Rose
+        value: ardoise-accent-rose
+      -
+        label: Lavender
+        value: ardoise-accent-lavender
+  -
+    id: ardoise-heading-colour
+    title: Heading colours
+    title.fr: Couleur des titres
+    description: Headings 1 to 3. Headings 4 to 6 always use shades of the text colour.
+    description.fr: Titres 1 à 3. Les titres 4 à 6 gardent toujours des nuances de la couleur du texte.
+    type: class-select
+    allowEmpty: false
+    default: ardoise-heading-colour-palette
+    options:
+      -
+        label: Ochre, blue, sage
+        value: ardoise-heading-colour-palette
+      -
+        label: Accent colour
+        value: ardoise-heading-colour-accent
+      -
+        label: Text colour
+        value: ardoise-heading-colour-text
+  -
+    id: typography
+    title: Typography
+    title.fr: Typographie
+    type: heading
+    level: 1
+    collapsed: false
+  -
+    id: ardoise-heading-font-text
+    title: Use the text font for headings
+    title.fr: Police du texte pour les titres
+    description: Replaces Fraunces with the font used for body text.
+    description.fr: Remplace Fraunces par la police du texte.
+    type: class-toggle
+    default: false
+  -
+    id: file-line-width
+    title: Line width
+    title.fr: Largeur de ligne
+    description: In pixels. Only applies when readable line length is turned on (Settings, Editor).
+    description.fr: En pixels. Ne s'applique que si la longueur de ligne lisible est activée (Paramètres, Éditeur).
+    type: variable-number-slider
+    default: 680
+    min: 560
+    max: 1000
+    step: 20
+    format: px
+
+*/
+
 /* =========================================================================
  * Dark palette
  * ========================================================================= */
@@ -382,6 +484,116 @@ body {
 /* Dark mode: Canvas group labels on dark colours use --text-on-accent, which is dark here */
 .theme-dark .canvas-node-group.is-themed .canvas-group-label:not([contenteditable=true]).mod-foreground-light {
   color: var(--text-bright);
+}
+
+/* =========================================================================
+ * Style Settings options. The plugin adds these classes to body; without
+ * it, none of the rules below apply and the theme keeps its defaults.
+ * ========================================================================= */
+
+/* Warm background. Same luminance as the slate greys, so contrast ratios
+ * stay the same. Body, bold and code text keep their colour. */
+.theme-dark.ardoise-bg-warm {
+  --bg-deep:     #292724;
+  --bg-panel:    #2d2b28;
+  --bg-alt:      #322f2b;
+  --bg-page:     #35332f;
+  --bg-raised:   #403d39;
+  --bg-raised-2: #484541;
+  --line:        #45423e;
+  --line-2:      #534f4c;
+  --line-3:      #5d5a56;
+  --text-soft:   #b3b0ae;
+  --text-grey:   #94928f;
+  --text-pale:   #83807e;
+  --on-accent:   #292724;
+  --bg-rgb:      41, 39, 36;
+  --overlay:     rgba(32, 30, 28, 0.6);
+}
+.theme-light.ardoise-bg-warm {
+  --bg-deep:     #e6e3dd;
+  --bg-panel:    #ebe8e3;
+  --bg-alt:      #efece6;
+  --bg-page:     #f3f0ea;
+  --bg-raised:   #e4e0db;
+  --bg-raised-2: #dcd8d3;
+  --line:        #dbd8d2;
+  --line-2:      #cecac6;
+  --line-3:      #b9b6b1;
+  --text-soft:   #69655e;
+  --text-grey:   #7d7872;
+  --text-pale:   #88837c;
+  --on-accent:   #f3f0ea;
+  --bg-rgb:      243, 240, 234;
+}
+
+/* Accent colour. --ochre is the accent variable: the name is kept so that
+ * existing snippets still work. Ochre is the default and needs no rule.
+ * --on-accent stays the same: every accent passes 4.5:1 with it. */
+.theme-dark.ardoise-accent-blue {
+  --ochre:        #a7c1de;
+  --ochre-bright: #bfd3ea;
+  --ochre-rgb:    167, 193, 222;
+  --accent-hsl:   212, 45%, 76%;
+}
+.theme-dark.ardoise-accent-sage {
+  --ochre:        #a9c7a1;
+  --ochre-bright: #c0d8b9;
+  --ochre-rgb:    169, 199, 161;
+  --accent-hsl:   107, 25%, 71%;
+}
+.theme-dark.ardoise-accent-rose {
+  --ochre:        #e0aba6;
+  --ochre-bright: #eac0bc;
+  --ochre-rgb:    224, 171, 166;
+  --accent-hsl:   5, 48%, 76%;
+}
+.theme-dark.ardoise-accent-lavender {
+  --ochre:        #b4a9cf;
+  --ochre-bright: #c8c0df;
+  --ochre-rgb:    180, 169, 207;
+  --accent-hsl:   257, 28%, 74%;
+}
+.theme-light.ardoise-accent-blue {
+  --ochre:        #3f6690;
+  --ochre-bright: #4c78a8;
+  --ochre-rgb:    90, 138, 190;
+  --accent-hsl:   211, 39%, 41%;
+}
+.theme-light.ardoise-accent-sage {
+  --ochre:        #4c7246;
+  --ochre-bright: #5a8553;
+  --ochre-rgb:    110, 150, 102;
+  --accent-hsl:   112, 24%, 36%;
+}
+.theme-light.ardoise-accent-rose {
+  --ochre:        #974842;
+  --ochre-bright: #ad5650;
+  --ochre-rgb:    200, 112, 104;
+  --accent-hsl:   4, 39%, 43%;
+}
+.theme-light.ardoise-accent-lavender {
+  --ochre:        #6c5a9c;
+  --ochre-bright: #7d6bb0;
+  --ochre-rgb:    140, 124, 190;
+  --accent-hsl:   256, 27%, 48%;
+}
+
+/* Heading colours (h1 to h3) */
+body.ardoise-heading-colour-accent {
+  --h1-color: var(--ochre);
+  --h2-color: var(--ochre);
+  --h3-color: var(--ochre);
+}
+body.ardoise-heading-colour-text {
+  --h1-color: var(--text);
+  --h2-color: var(--text);
+  --h3-color: var(--text);
+}
+
+/* Text font for headings */
+body.ardoise-heading-font-text {
+  --heading-font: var(--font-text);
 }
 
 /* =========================================================================

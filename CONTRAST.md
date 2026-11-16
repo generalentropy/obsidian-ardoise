@@ -168,3 +168,35 @@ This file is generated from `theme.css` by `node tools/contrast.mjs`.
 | Green (savings, pros, up) | `#4c7246` | `#eef0f2` | 4.83:1 | Pass |
 | Purple (win) | `#6c5a9c` | `#eef0f2` | 5.13:1 | Pass |
 | Faint (cancelled, forwarded, scheduling) | `#7b8590` | `#eef0f2` | 3.28:1 | Pass |
+
+## Style Settings options
+
+The options offered in the [Style Settings](https://github.com/mgmeyers/obsidian-style-settings) plugin. The tables above use the defaults: slate background, ochre accent.
+
+### Accent colours
+
+Ratios below 4.5:1 are in bold.
+
+| Accent | Mode | Link | Text on accent | Highlighted text |
+| --- | --- | ---: | ---: | ---: |
+| Ochre | Dark | 6.53:1 | 7.73:1 | 4.82:1 |
+| Ochre | Light | 4.87:1 | 4.87:1 | 8.11:1 |
+| Blue | Dark | 6.78:1 | 8.02:1 | 4.70:1 |
+| Blue | Light | 5.23:1 | 5.23:1 | 7.61:1 |
+| Sage | Dark | 6.81:1 | 8.05:1 | 4.70:1 |
+| Sage | Light | 4.83:1 | 4.83:1 | 7.76:1 |
+| Rose | Dark | 6.31:1 | 7.47:1 | 4.90:1 |
+| Rose | Light | 5.53:1 | 5.53:1 | 7.59:1 |
+| Lavender | Dark | 5.70:1 | 6.74:1 | 5.09:1 |
+| Lavender | Light | 5.13:1 | 5.13:1 | 7.62:1 |
+
+### Warm background
+
+Every row above, measured again on the warm background: 102 of 126 pass. Rows whose ratio moves by 0.05 or more:
+
+| Element | Mode | Slate | Warm | AA |
+| --- | --- | ---: | ---: | --- |
+| Bold | Light | 13.72:1 | 13.78:1 | Pass |
+| File explorer | Light | 4.79:1 | 4.74:1 | Pass |
+| File explorer, active file | Light | 9.23:1 | 9.18:1 | Pass |
+| Icons | Light | 4.79:1 | 4.74:1 | Pass |
