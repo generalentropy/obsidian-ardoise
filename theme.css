@@ -2,7 +2,7 @@
  * Dark palette
  * ========================================================================= */
 .theme-dark {
-  /* Backgrounds, darkest to lightest */
+  /* Backgrounds */
   --bg-deep:     #22282f; /* code backgrounds */
   --bg-panel:    #262c33; /* side panels, tab bar */
   --bg-alt:      #293038;
@@ -13,7 +13,7 @@
   --line-2:      #47515c;
   --line-3:      #515b66;
 
-  /* Text (chalk) */
+  /* Text */
   --text:        #e2ded6; /* body text */
   --text-bright: #f2efe9; /* bold */
   --text-soft:   #abb2b9; /* secondary text */
@@ -30,7 +30,7 @@
   --sage:          #a9c7a1; /* ### headings, tags, code strings */
   --rose:          #e0aba6; /* inline code */
 
-  /* Same hues as R, G, B (for transparency) */
+  /* RGB values, for transparency */
   --ochre-rgb:  219, 181, 124;
   --sage-rgb:   169, 199, 161;
   --text-rgb:   226, 222, 214;
@@ -53,7 +53,7 @@
  * Light palette
  * ========================================================================= */
 .theme-light {
-  /* Backgrounds: the note is the lightest, the frame one step deeper */
+  /* Backgrounds */
   --bg-deep:     #dfe4e8; /* code backgrounds */
   --bg-panel:    #e5e9ec; /* side panels, tab bar */
   --bg-alt:      #e9ecef;
@@ -64,7 +64,7 @@
   --line-2:      #c4ccd3;
   --line-3:      #aeb7bf;
 
-  /* Text (slate ink) */
+  /* Text */
   --text:        #2f3740; /* body text */
   --text-bright: #1d242b; /* bold */
   --text-soft:   #5b6672; /* secondary text */
@@ -73,7 +73,7 @@
   --code-text:   #3a434d;
   --on-accent:   #eef0f2; /* text on ochre */
 
-  /* Colours, darkened to stay readable on a light background */
+  /* Colours */
   --ochre:         #8c5f1f; /* accent: links, checkboxes, caret */
   --ochre-bright:  #a3712a; /* hover */
   --ochre-heading: #946a2e; /* # headings */
@@ -81,7 +81,7 @@
   --sage:          #4c7246; /* ### headings, tags, code strings */
   --rose:          #974842; /* inline code */
 
-  /* Same hues as R, G, B (for transparency) */
+  /* RGB values, for transparency */
   --ochre-rgb:  196, 146, 70;
   --sage-rgb:   110, 150, 102;
   --text-rgb:   47, 55, 64;
@@ -101,11 +101,11 @@
 }
 
 /* =========================================================================
- * Mapping: the palettes above applied to Obsidian (shared by both modes)
+ * Mapping to Obsidian variables (both modes)
  * ========================================================================= */
 .theme-dark,
 .theme-light {
-  /* Obsidian base colours (used by anything the theme doesn't set one by one) */
+  /* Obsidian base colours */
   --color-base-00: var(--bg-page);
   --color-base-05: var(--bg-alt);
   --color-base-10: var(--bg-alt);
@@ -121,7 +121,7 @@
   --mono-rgb-0: var(--bg-rgb);
   --mono-rgb-100: var(--text-rgb);
 
-  /* Accent (independent of the accent colour chosen in Settings) */
+  /* Accent (overrides the accent colour set in Settings) */
   --color-accent-hsl: var(--accent-hsl);
   --color-accent: var(--ochre);
   --color-accent-1: var(--ochre);
@@ -188,7 +188,7 @@
   --link-unresolved-opacity: 0.6;
   --link-unresolved-decoration-color: rgba(var(--ochre-rgb), 0.35);
 
-  /* Pill-shaped tags, in sage */
+  /* Tags */
   --tag-color: var(--sage);
   --tag-color-hover: var(--sage);
   --tag-background: rgba(var(--sage-rgb), 0.15);
@@ -231,7 +231,7 @@
   --table-header-background-hover: var(--bg-alt);
   --table-row-background-hover: rgba(var(--text-rgb), 0.03);
 
-  /* Interface: the whole frame in one shade, the note apart */
+  /* Interface */
   --titlebar-background: var(--bg-panel);
   --titlebar-background-focused: var(--bg-panel);
   --tab-container-background: var(--bg-panel);
@@ -261,7 +261,7 @@
   --nav-collapse-icon-color: var(--text-pale);
   --nav-collapse-icon-color-collapsed: var(--text-pale);
 
-  /* Thin, quiet scrollbars */
+  /* Scrollbars */
   --scrollbar-bg: transparent;
   --scrollbar-thumb-bg: rgba(var(--text-rgb), 0.08);
   --scrollbar-active-thumb-bg: rgba(var(--text-rgb), 0.16);
@@ -277,7 +277,7 @@
 }
 
 /* =========================================================================
- * Typography (shared by both modes)
+ * Typography (both modes)
  * ========================================================================= */
 body {
   --font-text-theme: "Ardoise Sans", "Hanken Grotesk", "Atkinson Hyperlegible Next", "Segoe UI", sans-serif;
@@ -329,7 +329,7 @@ body {
   --callout-border-width: 0px;
 }
 
-/* Fraunces in its soft style: rounded serifs, no wonky shapes */
+/* Headings: Fraunces axes */
 .inline-title,
 .markdown-rendered :is(h1, h2, h3),
 .markdown-source-view.mod-cm6 :is(.HyperMD-header-1, .HyperMD-header-2, .HyperMD-header-3) {
@@ -337,20 +337,20 @@ body {
   letter-spacing: -0.005em;
 }
 
-/* Small headings (h5, h6) in spaced capitals, like labels */
+/* h5, h6: uppercase */
 .markdown-rendered :is(h5, h6),
 .markdown-source-view.mod-cm6 :is(.HyperMD-header-5, .HyperMD-header-6) {
   text-transform: uppercase;
   letter-spacing: 0.07em;
 }
 
-/* Folders slightly bolder than files */
+/* Folder titles */
 .nav-folder-title {
   color: var(--text-normal);
   font-weight: 560;
 }
 
-/* Links: a quiet underline that strengthens on hover */
+/* Link underline */
 .markdown-rendered a {
   text-decoration-color: rgba(var(--ochre-rgb), 0.4);
   text-underline-offset: 0.18em;
@@ -359,7 +359,7 @@ body {
   text-decoration-color: currentColor;
 }
 
-/* Inline code: a small pill, in rose */
+/* Inline code */
 .markdown-rendered :not(pre) > code {
   border-radius: var(--code-radius);
   padding: 0.1em 0.35em;
@@ -369,26 +369,23 @@ body {
   color: var(--rose);
 }
 
-/* Code blocks: a thin border rather than a shadow */
+/* Code blocks */
 .markdown-rendered pre {
   border: 1px solid var(--background-modifier-border);
   border-radius: 8px;
 }
 
-/* Dark mode: Obsidian expects --text-on-accent-inverted to be dark, for light backgrounds
- * (Canvas group labels on a light colour). */
+/* Dark mode: Canvas group labels on light colours use --text-on-accent-inverted, which must be dark */
 .theme-dark {
   --text-on-accent-inverted: var(--on-accent);
 }
-/* Dark mode: on a dark Canvas group, Obsidian uses --text-on-accent and assumes it is light.
- * Here it is dark, since the ochre is light, so light text is set instead. */
+/* Dark mode: Canvas group labels on dark colours use --text-on-accent, which is dark here */
 .theme-dark .canvas-node-group.is-themed .canvas-group-label:not([contenteditable=true]).mod-foreground-light {
   color: var(--text-bright);
 }
 
 /* =========================================================================
- * Alternate checkboxes: - [/] in progress, - [-] cancelled, - [>] forwarded, - [!] important…
- * Same characters as the Minimal theme (and its collection in the Tasks plugin).
+ * Alternate checkboxes, same characters as the Minimal theme.
  * Icons from Minimal, Copyright (c) 2020-2024 Steph Ango (@kepano), MIT License:
  * https://github.com/kepano/obsidian-minimal/blob/master/LICENSE
  * ========================================================================= */
@@ -449,7 +446,7 @@ li[data-task="b"] > p > input:checked {
   -webkit-mask-position: 50% 50%;
 }
 
-/* [/] In progress: half-filled box */
+/* [/] In progress */
 input[data-task="/"]:checked,
 li[data-task="/"] > input:checked,
 li[data-task="/"] > p > input:checked {
@@ -468,7 +465,7 @@ li[data-task="/"] > p > input:checked::after {
   -webkit-mask-image: none;
 }
 
-/* [-] Cancelled: struck-through, faded text */
+/* [-] Cancelled: text */
 .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="-"],
 ul > li.task-list-item[data-task="-"] {
   color: var(--text-faint);

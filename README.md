@@ -15,7 +15,7 @@ A clean, calm theme in dark and light.
 - Pill-shaped tags, quiet tabs and status bar, thin scrollbars
 - Fonts included:
   - Hanken Grotesk for text and interface
-  - Fraunces, in its soft style, for headings
+  - Fraunces for headings
   - Geist Mono for code
 
 ## Customisation
