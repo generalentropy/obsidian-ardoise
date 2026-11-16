@@ -32,6 +32,8 @@ Colours are CSS variables at the top of `theme.css`, with one block for each mod
 }
 ```
 
+Ardoise uses its own ochre accent, so the accent colour in **Settings → Appearance** has no effect. To change it, override `--ochre` with a snippet, as above.
+
 To use your body font for headings too:
 
 ```css
