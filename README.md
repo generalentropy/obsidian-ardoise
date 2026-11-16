@@ -20,13 +20,23 @@ A clean, calm theme in dark and light.
 
 ## Customisation
 
-Colours are CSS variables at the top of `theme.css`, with one block for each mode. The variable names are in French: `--fond-page` (page background), `--texte` (text), `--ocre`, `--bleu`, `--sauge`, `--rose`. You can override them with a CSS snippet:
+Colours are CSS variables at the top of `theme.css`, with one block for each mode: `--bg-page` (note background), `--text` (body text), `--ochre` (accent), `--blue`, `--sage` and `--rose`. You can override them with a CSS snippet:
 
 ```css
 .theme-dark {
-  --ocre: #e0b070;
+  --ochre: #e0b070;
 }
 ```
+
+To use your body font for headings too:
+
+```css
+body {
+  --heading-font: var(--font-text);
+}
+```
+
+The French names used before version 1.2 (`--fond-page`, `--texte`, `--ocre`, `--bleu`, `--sauge`, `--ardoise-titre`) still work.
 
 Fonts set in **Settings → Appearance → Font** take precedence over the theme's fonts.
 
