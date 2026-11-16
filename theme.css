@@ -71,6 +71,14 @@ settings:
         label: Text colour
         value: ardoise-heading-colour-text
   -
+    id: ardoise-high-contrast
+    title: Higher contrast
+    title.fr: Contraste renforcé
+    description: Brings all text up to 4.5:1, including faint text (heading 6, list markers, tabs, status bar), code comments and callout titles. Links to missing notes get a dashed underline instead of fading.
+    description.fr: Porte tout le texte à 4,5:1, y compris le texte pâle (titre 6, puces, onglets, barre d'état), les commentaires de code et les titres d'encadrés. Les liens vers des notes inexistantes sont soulignés en pointillés au lieu d'être estompés.
+    type: class-toggle
+    default: false
+  -
     id: typography
     title: Typography
     title.fr: Typographie
@@ -86,6 +94,25 @@ settings:
     type: class-toggle
     default: false
   -
+    id: ardoise-heading-56-normal-case
+    title: Normal case for headings 5 and 6
+    title.fr: Titres 5 et 6 sans majuscules
+    description: Headings 5 and 6 are in capitals by default.
+    description.fr: Par défaut, les titres 5 et 6 sont en majuscules.
+    type: class-toggle
+    default: false
+  -
+    id: line-height-normal
+    title: Line height
+    title.fr: Interligne
+    description: Space between lines of text. 1.65 by default.
+    description.fr: Espace entre les lignes du texte. 1,65 par défaut.
+    type: variable-number-slider
+    default: 1.65
+    min: 1.4
+    max: 2
+    step: 0.05
+  -
     id: file-line-width
     title: Line width
     title.fr: Largeur de ligne
@@ -97,6 +124,21 @@ settings:
     max: 1000
     step: 20
     format: px
+  -
+    id: elements
+    title: Elements
+    title.fr: Éléments
+    type: heading
+    level: 1
+    collapsed: false
+  -
+    id: ardoise-tags-plain
+    title: Plain tags
+    title.fr: Tags sans pastille
+    description: Shows tags as coloured text, without the pill.
+    description.fr: Affiche les tags en texte coloré, sans pastille.
+    type: class-toggle
+    default: false
 
 */
 
@@ -594,6 +636,53 @@ body.ardoise-heading-colour-text {
 /* Text font for headings */
 body.ardoise-heading-font-text {
   --heading-font: var(--font-text);
+}
+
+/* Normal case for headings 5 and 6 */
+.ardoise-heading-56-normal-case .markdown-rendered :is(h5, h6),
+.ardoise-heading-56-normal-case .markdown-source-view.mod-cm6 :is(.HyperMD-header-5, .HyperMD-header-6) {
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+/* Plain tags: coloured text, no pill */
+body.ardoise-tags-plain {
+  --tag-background: transparent;
+  --tag-background-hover: transparent;
+  --tag-padding-x: 0;
+  --tag-padding-y: 0;
+  --tag-radius: 0;
+  --tag-decoration-hover: underline;
+}
+
+/* Higher contrast: every text colour reaches 4.5:1 on the backgrounds it
+ * sits on (checked by tools/contrast.mjs). Each colour keeps its hue and
+ * moves only as far as needed. These blocks come after the warm background
+ * so that they win over it. */
+.theme-dark.ardoise-high-contrast {
+  --text-pale:  #939ea8;
+  --color-red-rgb: 227, 152, 152;  --color-red: #e39898;
+  --link-unresolved-opacity: 1;
+  --link-unresolved-decoration-style: dashed;
+}
+.theme-dark.ardoise-bg-warm.ardoise-high-contrast {
+  --text-pale:  #9f9c9a;
+}
+.theme-light.ardoise-high-contrast {
+  --text-pale:  #5f6873;
+  --sage:       #466c40;
+  --color-red-rgb: 166, 65, 66;     --color-red: #a64142;
+  --color-orange-rgb: 151, 80, 28;  --color-orange: #97501c;
+  --color-green-rgb: 71, 108, 65;   --color-green: #476c41;
+  --color-cyan-rgb: 32, 109, 108;   --color-cyan: #206d6c;
+  --color-pink-rgb: 149, 72, 118;   --color-pink: #954876;
+  --code-comment: var(--text-soft);
+  --code-punctuation: var(--text-soft);
+  --link-unresolved-opacity: 1;
+  --link-unresolved-decoration-style: dashed;
+}
+.theme-light.ardoise-bg-warm.ardoise-high-contrast {
+  --text-pale:  #6b6660;
 }
 
 /* =========================================================================

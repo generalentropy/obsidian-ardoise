@@ -26,7 +26,7 @@ const mapping = block(".theme-dark,\n.theme-light {");
 // --- Resolve colours -------------------------------------------------------------------------------
 const hex = (h) => ({ r: parseInt(h.slice(1, 3), 16), g: parseInt(h.slice(3, 5), 16), b: parseInt(h.slice(5, 7), 16), a: 1 });
 function raw(mode, name) {
-  const v = mapping[name] ?? palette[mode][name];
+  const v = palette[mode][name] ?? mapping[name]; // palette first: Style Settings blocks can override mapped variables
   if (v === undefined) throw new Error(`unknown variable ${name}`);
   return v;
 }
@@ -69,7 +69,7 @@ const groups = [
     ["Faint text (h6, list markers, done tasks)", "--text-faint", page, "text"],
     ["Blockquote", "--blockquote-color", page, "text"],
     ["Link", "--link-color", page, "text"],
-    ["Link to a missing note (60% opacity)", { fg: "--link-unresolved-color", alpha: 0.6 }, page, "text"],
+    ["Link to a missing note (faded)", { fg: "--link-unresolved-color", alphaVar: "--link-unresolved-opacity" }, page, "text"],
     ["Tag", "--tag-color", { tint: "--tag-background", on: page }, "text"],
     ["Highlighted text", "--text-normal", { tint: "--text-highlight-bg", on: page }, "text"],
   ]],
@@ -126,7 +126,7 @@ const groups = [
 
 function resolve(mode, spec) {
   if (typeof spec === "string") return color(mode, spec);
-  if (spec.fg) return { ...color(mode, spec.fg), a: spec.alpha };
+  if (spec.fg) return { ...color(mode, spec.fg), a: parseFloat(raw(mode, spec.alphaVar)) };
   const base = color(mode, spec.on);
   const tint = spec.tint.endsWith("-rgb") ? { ...triple(mode, spec.tint), a: spec.alpha } : color(mode, spec.tint);
   return over(tint, base);
@@ -204,29 +204,39 @@ for (const name of accents) {
 }
 summary.push(`accents: ${accentPass}/${accentTotal} pass`);
 
-// Other backgrounds: every row above, measured again, with only the rows that move listed
-for (const bgName of options("bg")) {
-  const bgClass = `ardoise-bg-${bgName}`;
-  const rows = [
-    ...groups.flatMap(([, list]) => list).map((row) => ({ label: row[0], row, accent: "ochre" })),
-    ...accents.flatMap((name) => accentRows.map((row) => ({ label: `${row[0]}, ${name} accent`, row, accent: name }))),
-  ];
-  let pass = 0, total = 0, moved = "";
+// Other options: every row above, measured again, with only the rows that move listed.
+// Classes are applied in the order of their blocks in theme.css; a dotted entry such as
+// "ardoise-bg-warm.ardoise-high-contrast" is a block that needs both classes.
+const variants = [
+  { title: "Warm background", short: "Warm", classes: ["ardoise-bg-warm"] },
+  { title: "Higher contrast", short: "Higher contrast", classes: ["ardoise-high-contrast"] },
+  {
+    title: "Higher contrast on the warm background", short: "Both",
+    classes: ["ardoise-bg-warm", "ardoise-high-contrast", "ardoise-bg-warm.ardoise-high-contrast"],
+  },
+];
+const rows = [
+  ...groups.flatMap(([, list]) => list).map((row) => ({ label: row[0], row, accent: "ochre" })),
+  ...accents.flatMap((name) => accentRows.map((row) => ({ label: `${row[0]}, ${name} accent`, row, accent: name }))),
+];
+for (const { title, short, classes } of variants) {
+  let pass = 0, textPass = 0, textTotal = 0, total = 0, moved = "";
   for (const mode of ["dark", "light"]) {
     for (const { label, row, accent } of rows) {
       const before = withOptions(mode, accentClasses(accent), () => measure(mode, row));
-      const after = withOptions(mode, [bgClass, ...accentClasses(accent)], () => measure(mode, row));
+      const after = withOptions(mode, [...classes, ...accentClasses(accent)], () => measure(mode, row));
       total++; if (after.ok) pass++;
+      if (row[3] === "text") { textTotal++; if (after.ok) textPass++; }
       if (Math.abs(after.r - before.r) >= 0.05 || after.ok !== before.ok) {
         moved += `| ${label} | ${modeName(mode)} | ${before.r.toFixed(2)}:1 | ${after.r.toFixed(2)}:1 | ${after.ok ? "Pass" : `**Below** (${need[row[3]]}:1)`} |\n`;
       }
     }
   }
-  md += `\n### ${cap(bgName)} background\n\nEvery row above, measured again on the ${bgName} background: ${pass} of ${total} pass. `;
+  md += `\n### ${title}\n\nEvery row above, measured again: ${pass} of ${total} pass, including ${textPass} of ${textTotal} text rows. `;
   md += moved
-    ? `Rows whose ratio moves by 0.05 or more:\n\n| Element | Mode | Slate | ${cap(bgName)} | AA |\n| --- | --- | ---: | ---: | --- |\n${moved}`
+    ? `Rows whose ratio moves by 0.05 or more:\n\n| Element | Mode | Default | ${short} | AA |\n| --- | --- | ---: | ---: | --- |\n${moved}`
     : `No ratio moves by 0.05 or more.\n`;
-  summary.push(`${bgName}: ${pass}/${total} pass`);
+  summary.push(`${short.toLowerCase()}: ${pass}/${total} pass`);
 }
 writeFileSync(join(root, "CONTRAST.md"), md, "utf8");
 console.log(`CONTRAST.md written (${summary.join(", ")})`);

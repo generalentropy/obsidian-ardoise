@@ -2,7 +2,7 @@
 
 A clean, calm theme in dark and light.
 
-> **New in 1.3.0:** Ardoise now supports [Style Settings](#with-style-settings) 🎉
+> **New in 1.4.0:** a higher contrast option, line height, plain tags and more in [Style Settings](#with-style-settings) 🎉
 
 ![Downloads](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Freleases.obsidian.md%2Fstats%2Ftheme&query=%24.Ardoise.download&label=downloads&logo=obsidian&logoColor=e2ded6&labelColor=2d343d&color=47515c) ![Version](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fgeneralentropy%2Fobsidian-ardoise%2Fmain%2Fmanifest.json&query=%24.version&label=version&labelColor=2d343d&color=47515c) ![License](https://img.shields.io/github/license/generalentropy/obsidian-ardoise?labelColor=2d343d&color=47515c) ![Last commit](https://img.shields.io/github/last-commit/generalentropy/obsidian-ardoise?labelColor=2d343d&color=47515c)
 
@@ -17,7 +17,7 @@ _Ardoise_ is French for slate. In dark mode, chalk-coloured text sits on a blue-
 - Dark and light modes: easy on the eyes, with high contrast for body text (about 9:1 or more)
 - One colour per heading level: ochre, blue, sage
 - Pill-shaped tags, quiet tabs and status bar, thin scrollbars
-- [Style Settings](https://github.com/mgmeyers/obsidian-style-settings) support: warm background, five accent colours, heading colours and font, line width
+- [Style Settings](https://github.com/mgmeyers/obsidian-style-settings) support: warm background, five accent colours, higher contrast, heading colours and font, line height and width, plain tags
 - Fonts included:
   - Hanken Grotesk for text and interface
   - Fraunces for headings
@@ -38,10 +38,14 @@ Install the [Style Settings](https://github.com/mgmeyers/obsidian-style-settings
 | Background | Slate (default) or Warm |
 | Accent colour | Ochre (default), Blue, Sage, Rose or Lavender |
 | Heading colours | Ochre, blue, sage (default), the accent colour, or the text colour |
+| Higher contrast | Off (default) or on: all text reaches 4.5:1, including faint text and code comments |
 | Use the text font for headings | Off (Fraunces, default) or on |
+| Normal case for headings 5 and 6 | Off (capitals, default) or on |
+| Line height | 1.4 to 2, 1.65 by default |
 | Line width | 560 to 1000 px, 680 by default. Needs **Settings → Editor → Readable line length** |
+| Plain tags | Off (pills, default) or on: coloured text without the pill |
 
-Every accent colour meets WCAG AA in both modes, on both backgrounds. See [CONTRAST.md](CONTRAST.md).
+Every accent colour meets WCAG AA in both modes, on both backgrounds. With **Higher contrast**, every text colour does too. See [CONTRAST.md](CONTRAST.md).
 
 ### With a CSS snippet
 

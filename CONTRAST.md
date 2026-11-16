@@ -21,7 +21,7 @@ This file is generated from `theme.css` by `node tools/contrast.mjs`.
 | Faint text (h6, list markers, done tasks) | `#78828c` | `#2d343d` | 3.22:1 | **Below** (4.5:1) |
 | Blockquote | `#abb2b9` | `#2d343d` | 5.87:1 | Pass |
 | Link | `#dbb57c` | `#2d343d` | 6.53:1 | Pass |
-| Link to a missing note (60% opacity) | `#958163` | `#2d343d` | 3.37:1 | **Below** (4.5:1) |
+| Link to a missing note (faded) | `#958163` | `#2d343d` | 3.37:1 | **Below** (4.5:1) |
 | Tag | `#a9c7a1` | `#404a4c` | 4.94:1 | Pass |
 | Highlighted text | `#e2ded6` | `#655d51` | 4.82:1 | Pass |
 
@@ -101,7 +101,7 @@ This file is generated from `theme.css` by `node tools/contrast.mjs`.
 | Faint text (h6, list markers, done tasks) | `#7b8590` | `#eef0f2` | 3.28:1 | **Below** (4.5:1) |
 | Blockquote | `#5b6672` | `#eef0f2` | 5.12:1 | Pass |
 | Link | `#8c5f1f` | `#eef0f2` | 4.87:1 | Pass |
-| Link to a missing note (60% opacity) | `#b39973` | `#eef0f2` | 2.38:1 | **Below** (4.5:1) |
+| Link to a missing note (faded) | `#b39973` | `#eef0f2` | 2.38:1 | **Below** (4.5:1) |
 | Tag | `#4c7246` | `#dbe3dd` | 4.20:1 | **Below** (4.5:1) |
 | Highlighted text | `#2f3740` | `#e1d2bb` | 8.11:1 | Pass |
 
@@ -192,11 +192,97 @@ Ratios below 4.5:1 are in bold.
 
 ### Warm background
 
-Every row above, measured again on the warm background: 102 of 126 pass. Rows whose ratio moves by 0.05 or more:
+Every row above, measured again: 102 of 126 pass, including 82 of 106 text rows. Rows whose ratio moves by 0.05 or more:
 
-| Element | Mode | Slate | Warm | AA |
+| Element | Mode | Default | Warm | AA |
 | --- | --- | ---: | ---: | --- |
 | Bold | Light | 13.72:1 | 13.78:1 | Pass |
 | File explorer | Light | 4.79:1 | 4.74:1 | Pass |
 | File explorer, active file | Light | 9.23:1 | 9.18:1 | Pass |
 | Icons | Light | 4.79:1 | 4.74:1 | Pass |
+
+### Higher contrast
+
+Every row above, measured again: 126 of 126 pass, including 106 of 106 text rows. Rows whose ratio moves by 0.05 or more:
+
+| Element | Mode | Default | Higher contrast | AA |
+| --- | --- | ---: | ---: | --- |
+| Faint text (h6, list markers, done tasks) | Dark | 3.22:1 | 4.61:1 | Pass |
+| Link to a missing note (faded) | Dark | 3.37:1 | 6.53:1 | Pass |
+| Heading 6 | Dark | 3.22:1 | 4.61:1 | Pass |
+| Comment | Dark | 3.80:1 | 5.45:1 | Pass |
+| Important | Dark | 5.66:1 | 6.52:1 | Pass |
+| Red (danger, bug) | Dark | 4.09:1 | 4.63:1 | Pass |
+| Tab | Dark | 3.60:1 | 5.16:1 | Pass |
+| Status bar | Dark | 3.60:1 | 5.16:1 | Pass |
+| Checkbox border | Dark | 3.22:1 | 4.61:1 | Pass |
+| Red (location, fire, down) | Dark | 4.78:1 | 5.51:1 | Pass |
+| Faint (cancelled, forwarded, scheduling) | Dark | 3.22:1 | 4.61:1 | Pass |
+| Faint text (h6, list markers, done tasks) | Light | 3.28:1 | 4.95:1 | Pass |
+| Link to a missing note (faded) | Light | 2.38:1 | 4.87:1 | Pass |
+| Tag | Light | 4.20:1 | 4.59:1 | Pass |
+| Heading 3 | Light | 4.83:1 | 5.28:1 | Pass |
+| Heading 6 | Light | 3.28:1 | 4.95:1 | Pass |
+| Comment | Light | 2.93:1 | 4.57:1 | Pass |
+| String | Light | 4.31:1 | 4.71:1 | Pass |
+| Property | Light | 3.93:1 | 4.73:1 | Pass |
+| Value | Light | 3.75:1 | 4.71:1 | Pass |
+| Tag | Light | 4.28:1 | 4.73:1 | Pass |
+| Important | Light | 4.18:1 | 4.75:1 | Pass |
+| Punctuation | Light | 3.42:1 | 4.57:1 | Pass |
+| Cyan (tip, abstract) | Light | 3.90:1 | 4.64:1 | Pass |
+| Green (success) | Light | 4.26:1 | 4.62:1 | Pass |
+| Orange (warning, question) | Light | 3.72:1 | 4.61:1 | Pass |
+| Red (danger, bug) | Light | 4.11:1 | 4.62:1 | Pass |
+| Tab | Light | 3.07:1 | 4.63:1 | Pass |
+| Status bar | Light | 3.07:1 | 4.63:1 | Pass |
+| Checkbox border | Light | 3.28:1 | 4.95:1 | Pass |
+| Orange (important, cons, bookmark) | Light | 4.20:1 | 5.28:1 | Pass |
+| Red (location, fire, down) | Light | 4.68:1 | 5.32:1 | Pass |
+| Green (savings, pros, up) | Light | 4.83:1 | 5.27:1 | Pass |
+| Faint (cancelled, forwarded, scheduling) | Light | 3.28:1 | 4.95:1 | Pass |
+
+### Higher contrast on the warm background
+
+Every row above, measured again: 126 of 126 pass, including 106 of 106 text rows. Rows whose ratio moves by 0.05 or more:
+
+| Element | Mode | Default | Both | AA |
+| --- | --- | ---: | ---: | --- |
+| Faint text (h6, list markers, done tasks) | Dark | 3.22:1 | 4.62:1 | Pass |
+| Link to a missing note (faded) | Dark | 3.37:1 | 6.55:1 | Pass |
+| Heading 6 | Dark | 3.22:1 | 4.62:1 | Pass |
+| Comment | Dark | 3.80:1 | 5.46:1 | Pass |
+| Important | Dark | 5.66:1 | 6.53:1 | Pass |
+| Red (danger, bug) | Dark | 4.09:1 | 4.62:1 | Pass |
+| Tab | Dark | 3.60:1 | 5.17:1 | Pass |
+| Status bar | Dark | 3.60:1 | 5.17:1 | Pass |
+| Checkbox border | Dark | 3.22:1 | 4.62:1 | Pass |
+| Red (location, fire, down) | Dark | 4.78:1 | 5.53:1 | Pass |
+| Faint (cancelled, forwarded, scheduling) | Dark | 3.22:1 | 4.62:1 | Pass |
+| Bold | Light | 13.72:1 | 13.78:1 | Pass |
+| Faint text (h6, list markers, done tasks) | Light | 3.28:1 | 5.00:1 | Pass |
+| Link to a missing note (faded) | Light | 2.38:1 | 4.90:1 | Pass |
+| Tag | Light | 4.20:1 | 4.61:1 | Pass |
+| Heading 3 | Light | 4.83:1 | 5.31:1 | Pass |
+| Heading 6 | Light | 3.28:1 | 5.00:1 | Pass |
+| Comment | Light | 2.93:1 | 4.52:1 | Pass |
+| String | Light | 4.31:1 | 4.71:1 | Pass |
+| Property | Light | 3.93:1 | 4.73:1 | Pass |
+| Value | Light | 3.75:1 | 4.71:1 | Pass |
+| Tag | Light | 4.28:1 | 4.73:1 | Pass |
+| Important | Light | 4.18:1 | 4.74:1 | Pass |
+| Punctuation | Light | 3.42:1 | 4.52:1 | Pass |
+| Cyan (tip, abstract) | Light | 3.90:1 | 4.65:1 | Pass |
+| Green (success) | Light | 4.26:1 | 4.64:1 | Pass |
+| Orange (warning, question) | Light | 3.72:1 | 4.63:1 | Pass |
+| Red (danger, bug) | Light | 4.11:1 | 4.64:1 | Pass |
+| File explorer | Light | 4.79:1 | 4.74:1 | Pass |
+| File explorer, active file | Light | 9.23:1 | 9.18:1 | Pass |
+| Tab | Light | 3.07:1 | 4.65:1 | Pass |
+| Status bar | Light | 3.07:1 | 4.65:1 | Pass |
+| Icons | Light | 4.79:1 | 4.74:1 | Pass |
+| Checkbox border | Light | 3.28:1 | 5.00:1 | Pass |
+| Orange (important, cons, bookmark) | Light | 4.20:1 | 5.31:1 | Pass |
+| Red (location, fire, down) | Light | 4.68:1 | 5.34:1 | Pass |
+| Green (savings, pros, up) | Light | 4.83:1 | 5.29:1 | Pass |
+| Faint (cancelled, forwarded, scheduling) | Light | 3.28:1 | 5.00:1 | Pass |
