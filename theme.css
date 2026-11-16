@@ -264,6 +264,12 @@ settings:
   --color-base-100: var(--text);
   --mono-rgb-0: var(--bg-rgb);
   --mono-rgb-100: var(--text-rgb);
+  --mono-0: rgb(var(--bg-rgb)); /* Obsidian 1.15 uses these instead of the -rgb ones */
+  --mono-100: rgb(var(--text-rgb));
+
+  /* macOS translucent window: sidebars show this colour over the blurred desktop
+   * (Obsidian's default is 60% black) */
+  --workspace-background-translucent: color-mix(in srgb, var(--bg-panel) 60%, transparent);
 
   /* Accent (overrides the accent colour set in Settings) */
   --color-accent-hsl: var(--accent-hsl);
