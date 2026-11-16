@@ -1,15 +1,12 @@
 # Ardoise
 
-![Downloads](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Freleases.obsidian.md%2Fstats%2Ftheme&query=%24.Ardoise.download&label=downloads&logo=obsidian&logoColor=e2ded6&labelColor=2d343d&color=47515c)
-![Version](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fgeneralentropy%2Fobsidian-ardoise%2Fmain%2Fmanifest.json&query=%24.version&label=version&labelColor=2d343d&color=47515c)
-![License](https://img.shields.io/github/license/generalentropy/obsidian-ardoise?labelColor=2d343d&color=47515c)
-![Last commit](https://img.shields.io/github/last-commit/generalentropy/obsidian-ardoise?labelColor=2d343d&color=47515c)
-
 A clean, calm theme in dark and light.
+
+![Downloads](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Freleases.obsidian.md%2Fstats%2Ftheme&query=%24.Ardoise.download&label=downloads&logo=obsidian&logoColor=e2ded6&labelColor=2d343d&color=47515c) ![Version](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fgeneralentropy%2Fobsidian-ardoise%2Fmain%2Fmanifest.json&query=%24.version&label=version&labelColor=2d343d&color=47515c) ![License](https://img.shields.io/github/license/generalentropy/obsidian-ardoise?labelColor=2d343d&color=47515c) ![Last commit](https://img.shields.io/github/last-commit/generalentropy/obsidian-ardoise?labelColor=2d343d&color=47515c)
 
 ![Ardoise in dark and light mode](screenshot.png)
 
-*Ardoise* is French for slate. In dark mode, chalk-coloured text sits on a blue-grey slate. In light mode, slate-coloured text sits on a pale blue-grey sheet. Ochre is the accent, with touches of blue, sage and rose.
+_Ardoise_ is French for slate. In dark mode, chalk-coloured text sits on a blue-grey slate. In light mode, slate-coloured text sits on a pale blue-grey sheet. Ochre is the accent, with touches of blue, sage and rose.
 
 <a href="https://www.buymeacoffee.com/eddynicolle"><img src="assets/buy-me-a-coffee.svg" alt="Buy me a coffee" width="184" height="44"></a>
 
