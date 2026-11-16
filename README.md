@@ -36,6 +36,8 @@ The bundled fonts are licensed under the SIL Open Font License 1.1. Their licens
 - [Fraunces](https://github.com/undercasetype/Fraunces), © The Fraunces Project Authors
 - [Geist Mono](https://github.com/vercel/geist-font), © The Geist Project Authors
 
+The alternate checkbox icons come from [Minimal](https://github.com/kepano/obsidian-minimal) by Steph Ango, released under the MIT License.
+
 ## License
 
 The theme is released under the [MIT License](LICENSE). The bundled fonts keep their own license (OFL 1.1).
