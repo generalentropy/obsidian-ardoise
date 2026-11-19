@@ -33,21 +33,21 @@ Ardoise uses its own accent, so the accent colour in **Settings → Appearance**
 
 Install the [Style Settings](https://github.com/mgmeyers/obsidian-style-settings) plugin, then open **Settings → Style Settings → Ardoise**.
 
-| Setting | Choices |
+| Setting | Description |
 | --- | --- |
 | Background | Slate (default) or Warm |
-| Darker background | Off (default) or on: darker backgrounds in dark mode, with either background |
+| Darker background | Darker backgrounds in dark mode, with either background |
 | Accent colour | Ochre (default), Blue, Sage, Rose or Lavender |
 | Heading colours | Ochre, blue, sage (default), the accent colour, or the text colour |
-| Higher contrast | Off (default) or on: all text reaches 4.5:1, including faint text and code comments |
-| Use the text font for headings | Off (Fraunces, default) or on |
-| Normal case for headings 5 and 6 | Off (capitals, default) or on |
+| Higher contrast | All text reaches 4.5:1, including faint text and code comments |
+| Use the text font for headings | Headings use the text font instead of Fraunces |
+| Normal case for headings 5 and 6 | Headings 5 and 6 in normal case instead of capitals |
 | Line height | 1.4 to 2, 1.65 by default |
 | Line width | 560 to 1000 px, 680 by default. Needs **Settings → Editor → Readable line length** |
-| Plain tags | Off (pills, default) or on: coloured text without the pill |
-| Callout border | Off (default) or on: a bar in the callout's colour along its left edge |
-| Striped tables | Off (default) or on: every other row gets a slightly different background |
-| Highlight the active line | Off (default) or on: a faint band behind the line with the cursor, in the editor |
+| Plain tags | Coloured text without the pill |
+| Callout border | A bar in the callout's colour along its left edge |
+| Striped tables | Every other row gets a slightly different background |
+| Highlight the active line | A faint band behind the line with the cursor, in the editor |
 
 Every accent colour meets WCAG AA in both modes, on both backgrounds. With **Higher contrast**, every text colour does too. See [CONTRAST.md](CONTRAST.md).
 
