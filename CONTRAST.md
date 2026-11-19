@@ -286,3 +286,143 @@ Every row above, measured again: 126 of 126 pass, including 106 of 106 text rows
 | Red (location, fire, down) | Light | 4.68:1 | 5.34:1 | Pass |
 | Green (savings, pros, up) | Light | 4.83:1 | 5.29:1 | Pass |
 | Faint (cancelled, forwarded, scheduling) | Light | 3.28:1 | 5.00:1 | Pass |
+
+### Darker background
+
+Dark mode only. Every dark mode row above, measured again: 57 of 63 pass, including 47 of 53 text rows. Rows whose ratio moves by 0.05 or more:
+
+| Element | Mode | Default | Darker | AA |
+| --- | --- | ---: | ---: | --- |
+| Body text | Dark | 9.37:1 | 10.48:1 | Pass |
+| Bold | Dark | 10.96:1 | 12.25:1 | Pass |
+| Secondary text | Dark | 5.87:1 | 6.56:1 | Pass |
+| Faint text (h6, list markers, done tasks) | Dark | 3.22:1 | 3.59:1 | **Below** (4.5:1) |
+| Blockquote | Dark | 5.87:1 | 6.56:1 | Pass |
+| Link | Dark | 6.53:1 | 7.30:1 | Pass |
+| Link to a missing note (faded) | Dark | 3.37:1 | 3.61:1 | **Below** (4.5:1) |
+| Tag | Dark | 4.94:1 | 5.49:1 | Pass |
+| Highlighted text | Dark | 4.82:1 | 5.23:1 | Pass |
+| Heading 1 (about 27px) | Dark | 7.02:1 | 7.84:1 | Pass |
+| Heading 2 | Dark | 6.78:1 | 7.58:1 | Pass |
+| Heading 3 | Dark | 6.81:1 | 7.61:1 | Pass |
+| Heading 4 | Dark | 9.37:1 | 10.48:1 | Pass |
+| Heading 5 | Dark | 5.87:1 | 6.56:1 | Pass |
+| Heading 6 | Dark | 3.22:1 | 3.59:1 | **Below** (4.5:1) |
+| Inline code | Dark | 7.47:1 | 8.14:1 | Pass |
+| Code block text | Dark | 9.77:1 | 10.66:1 | Pass |
+| Comment | Dark | 3.80:1 | 4.15:1 | **Below** (4.5:1) |
+| String | Dark | 8.05:1 | 8.78:1 | Pass |
+| Function | Dark | 7.16:1 | 7.81:1 | Pass |
+| Keyword | Dark | 6.74:1 | 7.35:1 | Pass |
+| Property | Dark | 7.51:1 | 8.20:1 | Pass |
+| Value | Dark | 6.77:1 | 7.38:1 | Pass |
+| Tag | Dark | 6.87:1 | 7.49:1 | Pass |
+| Important | Dark | 5.66:1 | 6.17:1 | Pass |
+| Operator | Dark | 6.94:1 | 7.57:1 | Pass |
+| Punctuation | Dark | 4.77:1 | 5.20:1 | Pass |
+| Blue (note, info) | Dark | 4.98:1 | 5.55:1 | Pass |
+| Cyan (tip, abstract) | Dark | 5.19:1 | 5.79:1 | Pass |
+| Green (success) | Dark | 5.15:1 | 5.74:1 | Pass |
+| Orange (warning, question) | Dark | 4.77:1 | 5.31:1 | Pass |
+| Red (danger, bug) | Dark | 4.09:1 | 4.55:1 | Pass |
+| Purple (example) | Dark | 4.73:1 | 5.27:1 | Pass |
+| File explorer | Dark | 6.58:1 | 7.22:1 | Pass |
+| File explorer, active file | Dark | 8.09:1 | 9.14:1 | Pass |
+| Tab | Dark | 3.60:1 | 3.96:1 | **Below** (4.5:1) |
+| Active tab | Dark | 9.37:1 | 10.48:1 | Pass |
+| Status bar | Dark | 3.60:1 | 3.96:1 | **Below** (4.5:1) |
+| Text on accent (buttons) | Dark | 7.73:1 | 8.43:1 | Pass |
+| Icons | Dark | 6.58:1 | 7.22:1 | Pass |
+| Checkbox border | Dark | 3.22:1 | 3.59:1 | Pass |
+| Checked box | Dark | 6.53:1 | 7.30:1 | Pass |
+| Yellow (question, star, idea, key) | Dark | 7.31:1 | 8.17:1 | Pass |
+| Orange (important, cons, bookmark) | Dark | 5.73:1 | 6.40:1 | Pass |
+| Red (location, fire, down) | Dark | 4.78:1 | 5.35:1 | Pass |
+| Green (savings, pros, up) | Dark | 6.29:1 | 7.03:1 | Pass |
+| Purple (win) | Dark | 5.70:1 | 6.37:1 | Pass |
+| Faint (cancelled, forwarded, scheduling) | Dark | 3.22:1 | 3.59:1 | Pass |
+| Link, ochre accent | Dark | 6.53:1 | 7.30:1 | Pass |
+| Text on accent, ochre accent | Dark | 7.73:1 | 8.43:1 | Pass |
+| Highlighted text, ochre accent | Dark | 4.82:1 | 5.23:1 | Pass |
+| Link, blue accent | Dark | 6.78:1 | 7.58:1 | Pass |
+| Text on accent, blue accent | Dark | 8.02:1 | 8.75:1 | Pass |
+| Highlighted text, blue accent | Dark | 4.70:1 | 5.10:1 | Pass |
+| Link, sage accent | Dark | 6.81:1 | 7.61:1 | Pass |
+| Text on accent, sage accent | Dark | 8.05:1 | 8.78:1 | Pass |
+| Highlighted text, sage accent | Dark | 4.70:1 | 5.10:1 | Pass |
+| Link, rose accent | Dark | 6.31:1 | 7.06:1 | Pass |
+| Text on accent, rose accent | Dark | 7.47:1 | 8.14:1 | Pass |
+| Highlighted text, rose accent | Dark | 4.90:1 | 5.31:1 | Pass |
+| Link, lavender accent | Dark | 5.70:1 | 6.37:1 | Pass |
+| Text on accent, lavender accent | Dark | 6.74:1 | 7.35:1 | Pass |
+| Highlighted text, lavender accent | Dark | 5.09:1 | 5.53:1 | Pass |
+
+### Darker warm background
+
+Dark mode only. Every dark mode row above, measured again: 57 of 63 pass, including 47 of 53 text rows. Rows whose ratio moves by 0.05 or more:
+
+| Element | Mode | Default | Darker warm | AA |
+| --- | --- | ---: | ---: | --- |
+| Body text | Dark | 9.37:1 | 10.52:1 | Pass |
+| Bold | Dark | 10.96:1 | 12.30:1 | Pass |
+| Secondary text | Dark | 5.87:1 | 6.55:1 | Pass |
+| Faint text (h6, list markers, done tasks) | Dark | 3.22:1 | 3.60:1 | **Below** (4.5:1) |
+| Blockquote | Dark | 5.87:1 | 6.55:1 | Pass |
+| Link | Dark | 6.53:1 | 7.33:1 | Pass |
+| Link to a missing note (faded) | Dark | 3.37:1 | 3.64:1 | **Below** (4.5:1) |
+| Tag | Dark | 4.94:1 | 5.51:1 | Pass |
+| Highlighted text | Dark | 4.82:1 | 5.22:1 | Pass |
+| Heading 1 (about 27px) | Dark | 7.02:1 | 7.88:1 | Pass |
+| Heading 2 | Dark | 6.78:1 | 7.61:1 | Pass |
+| Heading 3 | Dark | 6.81:1 | 7.64:1 | Pass |
+| Heading 4 | Dark | 9.37:1 | 10.52:1 | Pass |
+| Heading 5 | Dark | 5.87:1 | 6.55:1 | Pass |
+| Heading 6 | Dark | 3.22:1 | 3.60:1 | **Below** (4.5:1) |
+| Inline code | Dark | 7.47:1 | 8.16:1 | Pass |
+| Code block text | Dark | 9.77:1 | 10.68:1 | Pass |
+| Comment | Dark | 3.80:1 | 4.14:1 | **Below** (4.5:1) |
+| String | Dark | 8.05:1 | 8.80:1 | Pass |
+| Function | Dark | 7.16:1 | 7.82:1 | Pass |
+| Keyword | Dark | 6.74:1 | 7.36:1 | Pass |
+| Property | Dark | 7.51:1 | 8.21:1 | Pass |
+| Value | Dark | 6.77:1 | 7.40:1 | Pass |
+| Tag | Dark | 6.87:1 | 7.51:1 | Pass |
+| Important | Dark | 5.66:1 | 6.18:1 | Pass |
+| Operator | Dark | 6.94:1 | 7.54:1 | Pass |
+| Punctuation | Dark | 4.77:1 | 5.24:1 | Pass |
+| Blue (note, info) | Dark | 4.98:1 | 5.58:1 | Pass |
+| Cyan (tip, abstract) | Dark | 5.19:1 | 5.82:1 | Pass |
+| Green (success) | Dark | 5.15:1 | 5.76:1 | Pass |
+| Orange (warning, question) | Dark | 4.77:1 | 5.32:1 | Pass |
+| Red (danger, bug) | Dark | 4.09:1 | 4.55:1 | Pass |
+| Purple (example) | Dark | 4.73:1 | 5.29:1 | Pass |
+| File explorer | Dark | 6.58:1 | 7.18:1 | Pass |
+| File explorer, active file | Dark | 8.09:1 | 9.09:1 | Pass |
+| Tab | Dark | 3.60:1 | 3.95:1 | **Below** (4.5:1) |
+| Active tab | Dark | 9.37:1 | 10.52:1 | Pass |
+| Status bar | Dark | 3.60:1 | 3.95:1 | **Below** (4.5:1) |
+| Text on accent (buttons) | Dark | 7.73:1 | 8.44:1 | Pass |
+| Icons | Dark | 6.58:1 | 7.18:1 | Pass |
+| Checkbox border | Dark | 3.22:1 | 3.60:1 | Pass |
+| Checked box | Dark | 6.53:1 | 7.33:1 | Pass |
+| Yellow (question, star, idea, key) | Dark | 7.31:1 | 8.21:1 | Pass |
+| Orange (important, cons, bookmark) | Dark | 5.73:1 | 6.43:1 | Pass |
+| Red (location, fire, down) | Dark | 4.78:1 | 5.37:1 | Pass |
+| Green (savings, pros, up) | Dark | 6.29:1 | 7.06:1 | Pass |
+| Purple (win) | Dark | 5.70:1 | 6.40:1 | Pass |
+| Faint (cancelled, forwarded, scheduling) | Dark | 3.22:1 | 3.60:1 | Pass |
+| Link, ochre accent | Dark | 6.53:1 | 7.33:1 | Pass |
+| Text on accent, ochre accent | Dark | 7.73:1 | 8.44:1 | Pass |
+| Highlighted text, ochre accent | Dark | 4.82:1 | 5.22:1 | Pass |
+| Link, blue accent | Dark | 6.78:1 | 7.61:1 | Pass |
+| Text on accent, blue accent | Dark | 8.02:1 | 8.76:1 | Pass |
+| Highlighted text, blue accent | Dark | 4.70:1 | 5.13:1 | Pass |
+| Link, sage accent | Dark | 6.81:1 | 7.64:1 | Pass |
+| Text on accent, sage accent | Dark | 8.05:1 | 8.80:1 | Pass |
+| Highlighted text, sage accent | Dark | 4.70:1 | 5.12:1 | Pass |
+| Link, rose accent | Dark | 6.31:1 | 7.09:1 | Pass |
+| Text on accent, rose accent | Dark | 7.47:1 | 8.16:1 | Pass |
+| Highlighted text, rose accent | Dark | 4.90:1 | 5.30:1 | Pass |
+| Link, lavender accent | Dark | 5.70:1 | 6.40:1 | Pass |
+| Text on accent, lavender accent | Dark | 6.74:1 | 7.36:1 | Pass |
+| Highlighted text, lavender accent | Dark | 5.09:1 | 5.54:1 | Pass |

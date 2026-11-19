@@ -214,14 +214,19 @@ const variants = [
     title: "Higher contrast on the warm background", short: "Both",
     classes: ["ardoise-bg-warm", "ardoise-high-contrast", "ardoise-bg-warm.ardoise-high-contrast"],
   },
+  { title: "Darker background", short: "Darker", classes: ["ardoise-darker-bg"], modes: ["dark"] },
+  {
+    title: "Darker warm background", short: "Darker warm", modes: ["dark"],
+    classes: ["ardoise-bg-warm", "ardoise-darker-bg", "ardoise-bg-warm.ardoise-darker-bg"],
+  },
 ];
 const rows = [
   ...groups.flatMap(([, list]) => list).map((row) => ({ label: row[0], row, accent: "ochre" })),
   ...accents.flatMap((name) => accentRows.map((row) => ({ label: `${row[0]}, ${name} accent`, row, accent: name }))),
 ];
-for (const { title, short, classes } of variants) {
+for (const { title, short, classes, modes = ["dark", "light"] } of variants) {
   let pass = 0, textPass = 0, textTotal = 0, total = 0, moved = "";
-  for (const mode of ["dark", "light"]) {
+  for (const mode of modes) {
     for (const { label, row, accent } of rows) {
       const before = withOptions(mode, accentClasses(accent), () => measure(mode, row));
       const after = withOptions(mode, [...classes, ...accentClasses(accent)], () => measure(mode, row));
@@ -232,7 +237,8 @@ for (const { title, short, classes } of variants) {
       }
     }
   }
-  md += `\n### ${title}\n\nEvery row above, measured again: ${pass} of ${total} pass, including ${textPass} of ${textTotal} text rows. `;
+  const scope = modes.length === 1 ? `${modeName(modes[0])} mode only. Every ${modes[0]} mode row above` : "Every row above";
+  md += `\n### ${title}\n\n${scope}, measured again: ${pass} of ${total} pass, including ${textPass} of ${textTotal} text rows. `;
   md += moved
     ? `Rows whose ratio moves by 0.05 or more:\n\n| Element | Mode | Default | ${short} | AA |\n| --- | --- | ---: | ---: | --- |\n${moved}`
     : `No ratio moves by 0.05 or more.\n`;

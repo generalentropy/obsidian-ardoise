@@ -27,6 +27,14 @@ settings:
         label: Warm
         value: ardoise-bg-warm
   -
+    id: ardoise-darker-bg
+    title: Darker background
+    title.fr: Fond plus sombre
+    description: Dark mode only. Makes every background and border a little darker, on both slate and warm. Text contrast goes up.
+    description.fr: Mode sombre uniquement. Assombrit un peu tous les fonds et les bordures, sur l'ardoise comme sur le gris chaud. Le contraste du texte augmente.
+    type: class-toggle
+    default: false
+  -
     id: ardoise-accent
     title: Accent colour
     title.fr: "Couleur d'accent"
@@ -139,6 +147,30 @@ settings:
     description.fr: Affiche les tags en texte coloré, sans pastille.
     type: class-toggle
     default: false
+  -
+    id: ardoise-callout-border
+    title: Callout border
+    title.fr: Bordure des encadrés
+    description: Adds a bar in the callout's colour along its left edge.
+    description.fr: Ajoute une barre de la couleur de l'encadré sur son bord gauche.
+    type: class-toggle
+    default: false
+  -
+    id: ardoise-table-stripes
+    title: Striped tables
+    title.fr: Tableaux zébrés
+    description: Every other row of a table gets a slightly different background, darker in dark mode and lighter in light mode. Text contrast goes up.
+    description.fr: Une ligne sur deux reçoit un fond légèrement différent, plus sombre en mode sombre et plus clair en mode clair. Le contraste du texte augmente.
+    type: class-toggle
+    default: false
+  -
+    id: ardoise-active-line
+    title: Highlight the active line
+    title.fr: Surligner la ligne active
+    description: In the editor, a faint band behind the line with the cursor, darker in dark mode and lighter in light mode. Text contrast goes up.
+    description.fr: Dans l'éditeur, une bande discrète derrière la ligne du curseur, plus sombre en mode sombre et plus claire en mode clair. Le contraste du texte augmente.
+    type: class-toggle
+    default: false
 
 */
 
@@ -180,6 +212,7 @@ settings:
   --text-rgb:   226, 222, 214;
   --bg-rgb:     34, 40, 47;
   --overlay:    rgba(28, 31, 35, 0.6); /* behind modal windows */
+  --bg-band:    rgba(0, 0, 0, 0.14); /* table stripes, active line: darker, so contrast goes up */
   --accent-hsl: 36, 57%, 67%;
 
   /* Obsidian's named colours (callouts, graph, syntax highlighting) */
@@ -231,6 +264,7 @@ settings:
   --text-rgb:   47, 55, 64;
   --bg-rgb:     238, 240, 242;
   --overlay:    rgba(47, 55, 64, 0.35);
+  --bg-band:    rgba(255, 255, 255, 0.6); /* table stripes, active line: lighter, so contrast goes up */
   --accent-hsl: 35, 64%, 34%;
 
   /* Obsidian's named colours (callouts, graph, syntax highlighting) */
@@ -576,6 +610,39 @@ body {
   --bg-rgb:      243, 240, 234;
 }
 
+/* Darker background, dark mode only. Every background and border is 0.03
+ * darker in OKLCH lightness, so the steps between them stay the same and
+ * text contrast goes up. The warm block needs both classes and sets every
+ * variable of the slate block, so it wins whatever the order. */
+.theme-dark.ardoise-darker-bg {
+  --bg-deep:     #1b2128;
+  --bg-panel:    #1f252b;
+  --bg-alt:      #222930;
+  --bg-page:     #262c35;
+  --bg-raised:   #2d3640;
+  --bg-raised-2: #343e49;
+  --line:        #323b45;
+  --line-2:      #3f4954;
+  --line-3:      #49535e;
+  --on-accent:   #1b2128;
+  --bg-rgb:      27, 33, 40;
+  --overlay:     rgba(21, 24, 28, 0.6);
+}
+.theme-dark.ardoise-bg-warm.ardoise-darker-bg {
+  --bg-deep:     #22201d;
+  --bg-panel:    #262421;
+  --bg-alt:      #2b2824;
+  --bg-page:     #2d2b28;
+  --bg-raised:   #383531;
+  --bg-raised-2: #403d39;
+  --line:        #3d3a36;
+  --line-2:      #4b4744;
+  --line-3:      #55524e;
+  --on-accent:   #22201d;
+  --bg-rgb:      34, 32, 29;
+  --overlay:     rgba(25, 23, 21, 0.6);
+}
+
 /* Accent colour. --ochre is the accent variable: the name is kept so that
  * existing snippets still work. Ochre is the default and needs no rule.
  * --on-accent stays the same: every accent passes 4.5:1 with it. */
@@ -660,6 +727,26 @@ body.ardoise-tags-plain {
   --tag-padding-y: 0;
   --tag-radius: 0;
   --tag-decoration-hover: underline;
+}
+
+/* Callout border: a bar in the callout's colour along the left edge */
+body.ardoise-callout-border {
+  --callout-border-width: 0 0 0 3px;
+  --callout-border-opacity: 1;
+}
+
+/* Striped tables: Obsidian gives odd rows --table-row-alt-background. A
+ * striped row shows the same hover as the other rows. */
+body.ardoise-table-stripes {
+  --table-row-alt-background: var(--bg-band);
+  --table-row-alt-background-hover: var(--table-row-background-hover);
+}
+
+/* Active line, while the editor has focus. A gradient rather than a
+ * background colour, so that lines with their own background (code blocks)
+ * keep it underneath. */
+.ardoise-active-line .markdown-source-view.mod-cm6 .cm-editor.cm-focused .cm-line.cm-active {
+  background-image: linear-gradient(var(--bg-band), var(--bg-band));
 }
 
 /* Higher contrast: every text colour reaches 4.5:1 on the backgrounds it
