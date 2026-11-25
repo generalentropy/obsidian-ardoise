@@ -17,7 +17,7 @@ _Ardoise_ is French for slate. In dark mode, chalk-coloured text sits on a blue-
 - Dark and light modes: easy on the eyes, with high contrast for body text (about 9:1 or more)
 - One colour per heading level: ochre, blue, sage
 - Pill-shaped tags, quiet tabs and status bar, thin scrollbars
-- [Style Settings](https://github.com/mgmeyers/obsidian-style-settings) support: warm or darker background, five accent colours, higher contrast, heading colours and font, line height and width, plain tags, callout border, striped tables, active line
+- [Style Settings](https://github.com/mgmeyers/obsidian-style-settings) support: warm or darker background, five accent colours, higher contrast, heading colours and font, line height and width, plain tags, callout border, striped tables, active line, folder name weight
 - Fonts included:
   - Hanken Grotesk for text and interface
   - Fraunces for headings
@@ -48,6 +48,7 @@ Install the [Style Settings](https://github.com/mgmeyers/obsidian-style-settings
 | Callout border | A bar in the callout's colour along its left edge |
 | Striped tables | Every other row gets a slightly different background |
 | Highlight the active line | A faint band behind the line with the cursor, in the editor |
+| Regular weight for folder names | Folder names in the file explorer in regular weight instead of semi-bold |
 
 Every accent colour meets WCAG AA in both modes, on both backgrounds. With **Higher contrast**, every text colour does too. See [CONTRAST.md](CONTRAST.md).
 

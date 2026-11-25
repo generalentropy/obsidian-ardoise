@@ -171,6 +171,14 @@ settings:
     description.fr: Dans l'éditeur, une bande discrète derrière la ligne du curseur, plus sombre en mode sombre et plus claire en mode clair. Le contraste du texte augmente.
     type: class-toggle
     default: false
+  -
+    id: ardoise-folders-regular
+    title: Regular weight for folder names
+    title.fr: Dossiers en graisse normale
+    description: In the file explorer, folder names are semi-bold by default. Either way, they keep the same weight when you hover over them.
+    description.fr: Dans l'explorateur de fichiers, les noms de dossiers sont en demi-gras par défaut. Dans les deux cas, ils gardent la même graisse au survol.
+    type: class-toggle
+    default: false
 
 */
 
@@ -529,10 +537,15 @@ body {
   letter-spacing: 0.07em;
 }
 
-/* Folder titles */
+/* Folder titles. Obsidian gives a hovered, tapped or active item the
+ * weight in --nav-item-weight-hover or --nav-item-weight-active, so all
+ * three are set here: the title keeps its weight when the pointer is on it. */
 .nav-folder-title {
   color: var(--text-normal);
-  font-weight: 560;
+  --folder-title-weight: 560;
+  --nav-item-weight: var(--folder-title-weight);
+  --nav-item-weight-hover: var(--folder-title-weight);
+  --nav-item-weight-active: var(--folder-title-weight);
 }
 
 /* Link underline */
@@ -747,6 +760,11 @@ body.ardoise-table-stripes {
  * keep it underneath. */
 .ardoise-active-line .markdown-source-view.mod-cm6 .cm-editor.cm-focused .cm-line.cm-active {
   background-image: linear-gradient(var(--bg-band), var(--bg-band));
+}
+
+/* Folder names in regular weight, like file names */
+.ardoise-folders-regular .nav-folder-title {
+  --folder-title-weight: var(--font-normal);
 }
 
 /* Higher contrast: every text colour reaches 4.5:1 on the backgrounds it
